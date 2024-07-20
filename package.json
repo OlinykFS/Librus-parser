@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "tailwindcss -i parslib/static/src/input.css -o ./parslib/static/css/tailwind.css --minify",
+    "watch": "tailwindcss -i parslib/static/src/input.css -o ./parslib/static/css/tailwind.css --watch --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.5"
+  }
+}
+

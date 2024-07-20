@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl" class="h-full bg-gray-200">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librus Pars</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tailwind.css') }}">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+
+<body class="h-full font-roboto">
+    <div class="flex h-full">
+        <aside class="w-64 bg-gray-800 text-white p-6 fixed h-full">
+            <h1 class="text-2xl font-bold mb-8 px-5 text-left">Librus Pars</h1>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a href="" class="flex items-center p-2 rounded hover:bg-gray-700 transition-colors">
+                            <svg class="fas fa-chalkboard mr-3" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);">
+                                <path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z">
+                                </path>
+                                <path
+                                    d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z">
+                                </path>
+                            </svg>Dashboard</a></li>
+                    <li><a href="" class="klasy-link flex items-center p-2 rounded hover:bg-gray-700 transition-colors">
+                            <svg class="fas fa-chalkboard mr-3" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24"
+                                style="fill: rgba(255, 255, 255, 1);">
+                                <path d="M2 7v1l11 4 9-4V7L11 4z"></path>
+                                <path
+                                    d="M4 11v4.267c0 1.621 4.001 3.893 9 3.734 4-.126 6.586-1.972 7-3.467.024-.089.037-.178.037-.268V11L13 14l-5-1.667v3.213l-1-.364V12l-3-1z">
+                                </path>
+                            </svg> Klasy</a></li>
+                    <li><a href="" class="ndst-link flex items-center p-2 rounded hover:bg-gray-700 transition-colors">
+                            <svg class="fas fa-chalkboard mr-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                style="fill: rgba(255, 255, 255, 1);">
+                                <path
+                                    d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z">
+                                </path>
+                            </svg> Niedostateczne</a></li>
+                    <li><a href="/logout"
+                            class="logout-link flex items-center p-2 rounded hover:bg-gray-700 transition-colors">
+                            <svg class="fas fa-chalkboard mr-3" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24"
+                                style="fill: rgba(255, 255, 255, 1);">
+                                <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                                <path
+                                    d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z">
+                                </path>
+                            </svg> Wyloguj</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-12 py-16 ml-64">
+            <header class="flex justify-between items-center mb-8">
+                <h2 class="title m-0">Informacje</h2>
+                <div class="user-info">
+                    <span>Nauczyciel: {{ username }}</span>
+                </div>
+            </header>
+            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 pb-8 border-b">
+                <div class="bg-white rounded-lg shadow p-6 flex items-center">
+                    <i class="fas fa-users text-blue-500 text-2xl mr-4"></i>
+                    <div>
+                        <h3 class="text-sm font-medium mb-1">Ostatnie Logowanie</h3>
+                        <p class="text-xl font-semibold">{{ user_log }}</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 flex items-center">
+                    <i class="fas fa-shopping-cart text-blue-500 text-2xl mr-4"></i>
+                    <div>
+                        <h3 class="text-sm font-medium mb-1">Klasa</h3>
+                        <p class="text-xl font-semibold dynamic-content-stats-klasa"></p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 flex items-center">
+                    <i class="fas fa-dollar-sign text-blue-500 text-2xl mr-4"></i>
+                    <div>
+                        <h3 class="text-sm font-medium mb-1">Uczen</h3>
+                        <p class="text-xl font-semibold dynamic-content-stats-uczen"></p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 flex items-center">
+                    <i class="fas fa-clock text-blue-500 text-2xl mr-4"></i>
+                    <div>
+                        <h3 class="text-sm font-medium mb-1">Nr Ucznia</h3>
+                        <p class="text-xl font-semibold dynamic-content-stats-uczenId"></p>
+                    </div>
+                </div>
+            </section>
+            <section class="dynamic-content"></section>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/jQuery-3.7.1.js') }}"></script>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+
+</html>

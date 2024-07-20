@@ -1,0 +1,14 @@
+<div class="max-w-4xl bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b">Lista uczniów</h2>
+    <ul class="space-y-3">
+        {% for uczen in uczniowie %}
+        <li>
+            <button
+                class="load-students-data w-full px-4 py-3 text-left text-gray-700 bg-gray-100 hover:bg-blue-50 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md transition duration-300 ease-in-out border border-gray-300"
+                data-class-name="{{ uczen['name'] }}" data-class-id="{{ uczen['id'] }}" data-class-uczenid="{{ uczen['number'] }}">
+                {{ uczen['name'] }}
+            </button>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

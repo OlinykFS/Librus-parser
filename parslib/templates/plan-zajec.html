@@ -1,0 +1,36 @@
+<div class="bg-gray-100 max-h-screen py-10">
+    <div class="max-w-full">
+        <h1 class="text-center text-2xl font-bold mb-8 pt-0 text-[#2c3e50]">Plan Lekcij</h1>
+        <div class="bg-white shadow overflow-hidden rounded-lg">
+            <div class="overflow-x-auto">
+                <table class="table-auto w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            {% for header in plan_zajec[0] %}
+                            <th scope="col"
+                                class="pl-8 py-3 text-left text-xs font-black text-gray-500 uppercase tracking-wider">
+                                {{ header }}
+                            </th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        {% for row in plan_zajec[1:] %}
+                        <tr class="{% if loop.index is even %}bg-gray-50{% endif %}">
+                            {% for cell in row %}
+                            <td class="font-extrbold px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                {% if cell %}
+                                {{ cell }}
+                                {% else %}
+                                &nbsp;
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
