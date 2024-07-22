@@ -1,18 +1,1 @@
-<div class="bg-gray-100 min-h-screen p-8">
-    <div class="max-w-2xl">
-        <h2 class="title mb-6">Lista Klas</h2>
-        <div class="bg-white shadow overflow-hidden rounded-lg">
-            <ul class="divide-y divide-gray-200">
-                {% for klas in klasy %}
-                <li>
-                    <button
-                        class="load-students w-full px-6 py-4 text-left text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out"
-                        data-class-id="{{ klas['id'] }}" data-class-name="{{ klas['klas'] }}">
-                        {{ klas['klas'] }}
-                    </button>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-</div>
+<div class="bg-gray-100 min-h-screen p-8"><div class="max-w-2xl"><h2 class="title mb-6">Lista Klas</h2><div class="bg-white shadow overflow-hidden rounded-lg"><ul class="divide-y divide-gray-200">{% for klas in klasy %}<li><button class="load-students w-full px-6 py-4 text-left text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out" data-class-id="{{ klas['id'] }}" data-class-name="{{ klas['klas'] }}">{{ klas['klas'] }}</button></li>{% endfor %}</ul></div></div></div>
