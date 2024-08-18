@@ -1,8 +1,5 @@
 # Librus Parser for Teachers
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/6aa29f34-6e7f-415d-a029-05a94a90ef22" alt="Librus Parser Logo" width="200"/>
-</p>
 
 <p align="center">
   <strong>Streamline your teaching workflow with easy access to Librus data</strong>
